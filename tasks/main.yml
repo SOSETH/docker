@@ -1,0 +1,31 @@
+---
+- name: Add Docker repository key
+  apt_key:
+    id: "{{ docker_apt_key_sig }}"
+    keyserver: "{{ docker_apt_key_server }}"
+    state: present
+
+- name: Install APT HTTPS transport
+  apt:
+    name: apt-transport-https
+    state: present
+    update_cache: yes
+    cache_valid_time: 1800
+
+- name: Add docker APT repo
+  apt_repository:
+    repo: "{{ docker_apt_repo }}"
+    mode: "0644"
+    state: present
+
+- name: Add docker group
+  group:
+    name: docker
+    state: present
+
+- name: Install docker packages
+  apt:
+    name: docker-engine
+    state: present
+    update_cache: yes
+    cache_valid_time: 1800
