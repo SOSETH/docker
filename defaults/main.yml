@@ -1,4 +1,4 @@
 ---
 docker_apt_key_sig: 58118E89F3A912897C070ADBF76221572C52609D
 docker_apt_key_server: hkp://p80.pool.sks-keyservers.net:80
-docker_apt_repo: deb https://apt.dockerproject.org/repo debian-{{ ansible_distribution_release }} main
+docker_apt_repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
