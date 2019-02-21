@@ -46,7 +46,6 @@
     name:
       - docker-ce
       - docker-ce-cli
-      - docker-compose
       - containerd.io
     state: present
     update_cache: yes
