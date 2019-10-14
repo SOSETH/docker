@@ -5,14 +5,6 @@
     data: "{{ lookup('file', 'files/docker.gpg') }}"
     state: present
 
-- name: Install APT HTTPS transport
-  become: True
-  apt:
-    name: apt-transport-https
-    state: present
-    update_cache: yes
-    cache_valid_time: 1800
-
 - name: Remove old docker repo
   become: True
   apt_repository:
