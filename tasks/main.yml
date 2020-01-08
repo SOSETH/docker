@@ -42,3 +42,13 @@
     state: present
     update_cache: yes
     cache_valid_time: 1800
+
+- name: Install docker-compose
+  block:
+    - name: download docker-compose
+      shell:
+        cmd: curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    - name: Set permissions of docker-compose
+      shell:
+        cmd: chmod +x /usr/local/bin/docker-compose
+
