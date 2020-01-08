@@ -42,3 +42,13 @@
     state: present
     update_cache: yes
     cache_valid_time: 1800
+
+- name: Install docker-compose
+  when: docker_install_compose
+  apt:
+    name:
+      - docker-compose
+    state: present
+    update_cache: yes
+    cache_valid_time: 1800 
+
