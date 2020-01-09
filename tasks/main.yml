@@ -46,9 +46,9 @@
   block:
     - name: download docker-compose
       become: True
-      warn: False
       shell:
         cmd: curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        warn: False
     - name: Set permissions of docker-compose
       file:
         mode: -rwxr-xr-x
