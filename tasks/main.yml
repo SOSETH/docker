@@ -46,9 +46,11 @@
 - name: Install docker-compose
   block:
     - name: download docker-compose
+      become: True
       shell:
         cmd: curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     - name: Set permissions of docker-compose
+      become: True
       shell:
         cmd: chmod +x /usr/local/bin/docker-compose
 
