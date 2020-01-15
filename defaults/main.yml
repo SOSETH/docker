@@ -1,2 +1,5 @@
 ---
 docker_apt_repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+install_docker_compose: False
+docker_compose_version: "1.25.0"
+

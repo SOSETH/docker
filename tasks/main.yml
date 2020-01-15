@@ -41,4 +41,18 @@
       - containerd.io
     state: present
     update_cache: yes
-    cache_valid_time: 1800
+
+- name: Install docker-compose
+  when: install_docker_compose | bool
+  block:
+    - name: download docker-compose
+      become: True
+      get_url:
+        url: 'https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}'
+        dest: /usr/local/bin/docker-compose
+
+    - name: Set permissions of docker-compose
+      file:
+        mode: 0755
+        path: /usr/local/bin/docker-compose
+
