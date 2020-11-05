@@ -44,7 +44,7 @@
     cache_valid_time: 1800
 
 - name: Install docker-compose
-  when: docker_install_compose
+  when: docker_install_compose | bool
   apt:
     name:
       - docker-compose
